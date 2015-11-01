@@ -37,7 +37,7 @@ module Glipper
       end
 
       def descendant_files
-        Dir[descendant_files]
+        Dir[descendant_path]
       end
 
       def descendant_path
