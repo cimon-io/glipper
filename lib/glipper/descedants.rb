@@ -41,7 +41,7 @@ module Glipper
       end
 
       def descendant_path
-        engine_root.join('app', 'drappers', '*_drapper.rb')
+        engine_root.join('app', 'drappers', '**', '*_drapper.rb')
       end
 
       def decorates(*object_classes)
