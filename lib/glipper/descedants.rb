@@ -32,6 +32,14 @@ module Glipper
         [ActiveRecord::Base, ActiveRecord::Relation, Array]
       end
 
+      def engine_root
+        Rails.root
+      end
+
+      def descendant_files
+        engine_root.join('app', 'drappers', '*_drapper.rb')
+      end
+
       def decorates(*object_classes)
         @object_classes = object_classes
       end
