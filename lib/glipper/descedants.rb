@@ -4,7 +4,8 @@ module Glipper
 
     module ClassMethods
       def descendants
-        descendant_files.map { |i| File.basename(i, '.rb') }.map(&:classify).map(&:constantize).select { |k| k < self } + [self]
+        self.descendant_files.map { |i| require(i) }
+        super + [self]
       end
 
       def descendants_with_targets
