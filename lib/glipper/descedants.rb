@@ -4,7 +4,7 @@ module Glipper
 
     module ClassMethods
       def descendants
-        Dir[Rails.root.join('app', 'drappers', '*_drapper.rb')].map { |i| File.basename(i, '.rb') }.map(&:classify).map(&:constantize).select { |k| k < self } + [self]
+        descendant_files.map { |i| File.basename(i, '.rb') }.map(&:classify).map(&:constantize).select { |k| k < self } + [self]
       end
 
       def descendants_with_targets
@@ -37,6 +37,10 @@ module Glipper
       end
 
       def descendant_files
+        Dir[descendant_files]
+      end
+
+      def descendant_path
         engine_root.join('app', 'drappers', '*_drapper.rb')
       end
 
