@@ -4,8 +4,13 @@ module Glipper
 
     module ClassMethods
       def descendants
-        self.descendant_files.map { |i| require(i) }
-        super + [self]
+        descendant_files
+          .map { |i| Pathname.new(i).relative_path_from(descendant_root) }
+          .map(&:to_s)
+          .map { |i| i.gsub(/\.rb\z/, '') }
+          .map(&:classify)
+          .map(&:constantize)
+          .select { |k| k < self } + [self]
       end
 
       def descendants_with_targets
