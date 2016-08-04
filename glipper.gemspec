@@ -6,8 +6,8 @@ require 'glipper/version'
 Gem::Specification.new do |spec|
   spec.name          = "glipper"
   spec.version       = Glipper::VERSION
-  spec.authors       = ["Alexey Osipenko", "Maxim Tsaplin"]
-  spec.email         = ["alexey@osipenko.in.ua", "maxim.tsaplin@gmail.com"]
+  spec.authors       = ["Alexey Osipenko"]
+  spec.email         = ["alexey@cimon.io"]
   spec.summary       = %q{Implementation of drapers for the rails views}
   spec.description   = %q{Implementation of drapers for the rails views}
   spec.homepage      = "https://github.com/cimon-ci/glipper"
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "actionpack", ">= 4.1.1", "< 5.0"
+  spec.add_dependency "actionpack", ">= 4.1.1", "< 5.1"
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
