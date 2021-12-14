@@ -47,11 +47,19 @@ module Glipper
       end
 
       def descendant_root
-        engine_root.join('app', 'drappers')
+        engine_root.join('app', descendant_folder_name)
+      end
+
+      def descendant_folder_name
+        'drappers'
+      end
+
+      def descendant_file_mask
+        '*_drapper.rb'
       end
 
       def descendant_path
-        descendant_root.join('**', '*_drapper.rb')
+        descendant_root.join('**', descendant_file_mask)
       end
 
       def decorates(*object_classes)
