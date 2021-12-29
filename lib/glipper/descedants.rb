@@ -51,11 +51,11 @@ module Glipper
       end
 
       def descendant_folder_name
-        'drappers'
+        'glippers'
       end
 
       def descendant_file_mask
-        '*_drapper.rb'
+        '*_glipper.rb'
       end
 
       def descendant_path
