@@ -67,7 +67,7 @@ module Glipper
       end
 
       def object_classes
-        @object_classes
+        Array.wrap(@object_classes)
       end
     end
   end
