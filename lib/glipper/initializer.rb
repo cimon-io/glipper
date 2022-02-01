@@ -12,7 +12,11 @@ module Glipper
 
     module ClassMethods
       def decorate(resource, helpers=ActionController::Base.helpers)
-        self.find_drapper_for(resource).new(resource, helpers)
+        drapper = self.find_drapper_for(resource)
+
+        raise ::Glipper::NoDrapperFoundError.new("Could not find drapper for #{resource}") if drapper.nil?
+
+        drapper.new(resource, helpers)
       end
     end
 
