@@ -8,6 +8,7 @@ module Glipper
       attr_reader :object_classes
       alias_method :o, :object
       alias_method :resource, :object
+      alias_method :glip, :decorate
     end
 
     module ClassMethods
@@ -27,8 +28,7 @@ module Glipper
     end
 
     def decorate(another_resource)
-      self.class.decorate(another_resource)
+      self.class.decorate(another_resource, self.helpers)
     end
-
   end
 end
